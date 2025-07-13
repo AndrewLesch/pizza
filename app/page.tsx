@@ -1,4 +1,4 @@
-import { Container, TopBar, Title } from "@/components/shared";
+import { Container, TopBar, Title, Filters } from "@/components/shared";
 
 
 export default function Home() {
@@ -8,6 +8,18 @@ export default function Home() {
         <Title text="Все пиццы" size="lg" className="font-extrabold" />
       </Container> 
       <TopBar />
+      <Container className="mt-10 pb-14 ">
+        <div className="flex gap-[60px]">
+          <div className="w-[250px]">
+            <Filters />
+          </div>
+
+
+          <div>
+
+          </div>
+        </div>
+      </Container>  
     </>
   );
 }
