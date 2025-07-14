@@ -119,6 +119,7 @@
   html {
     --default-font-family: var(--font-nunito), sans-serif;
     --font-family: var(--font-nunito), sans-serif;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
