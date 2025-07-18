@@ -22,11 +22,18 @@ export const SearchInput: React.FC<Props> = ({className}) => {
     setFocused(false)
   })
 
-  useDebounce(() => {
-    Api.products.search(searchQuery).then(
-      items => setProducts(items)
-    )
-  },250, [searchQuery])
+  useDebounce(
+    async () => {
+      try {
+        const response = await Api.products.search(searchQuery);
+        setProducts(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    250,
+    [searchQuery],
+  );
 
   const onClickItem = () => {
     setFocused(false)
@@ -42,7 +49,7 @@ export const SearchInput: React.FC<Props> = ({className}) => {
         <input
             className="rounded-2xl outline-none w-full bg-gray-100 pl-11"
             type="text"
-            placeholder="Найти пиццу..."
+            placeholder="Найти товар..."
             onFocus={() => setFocused(true)}
             onChange={(e) => setSearchQuery(e.target.value)}
             value={searchQuery}
